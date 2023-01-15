@@ -1,4 +1,12 @@
-import { Box, Container, Heading, Stack, Flex, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Heading,
+  Stack,
+  Flex,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import { NextPage } from "next";
 import Head from "next/head";
 import { CardPlans } from "../../components/cards/CardPlans";
@@ -48,19 +56,14 @@ const mockPlans = [
 ];
 
 const Plans: NextPage = () => {
+  const [isMobile] = useMediaQuery("(max-width: 800px)");
   return (
     <LayoutNoAuth>
       <Head>
-        <title>Connect - Login</title>
+        <title>Connect - Planos</title>
       </Head>
 
-      <Box
-        /*    bgImage={"/waves/wave-plan.svg"}
-        bgPosition={"top"}
-        bgSize="contain"
-        bgRepeat={"no-repeat"} */
-        as="main"
-      >
+      <Box as="main">
         <Container p={10} maxW={"container.md"}>
           <Stack spacing={10} align={"center"} w={"full"}>
             <Heading fontSize={"3rem"} color={"blue.100"}>
@@ -75,6 +78,7 @@ const Plans: NextPage = () => {
             </Text>
 
             <Flex
+              flexDirection={isMobile ? "column" : "row"}
               gap={10}
               justifyContent={"space-evenly"}
               alignItems="flex-end"

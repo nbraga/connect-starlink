@@ -1,4 +1,11 @@
-import { Divider, Flex, Stack, Text, Image } from "@chakra-ui/react";
+import {
+  Divider,
+  Flex,
+  Stack,
+  Text,
+  Image,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import React from "react";
 import {
   AiFillFacebook,
@@ -7,14 +14,21 @@ import {
 } from "react-icons/ai";
 
 export const Footer = () => {
+  const [isMobile] = useMediaQuery("(max-width: 800px)");
+
   const date = new Date();
   const year = date.getFullYear();
 
   return (
-    <Stack bgColor={"gray.100"} p={10}>
+    <Stack bgColor={"gray.200"} p={10}>
       <Divider />
-      <Flex p={10} alignItems={"center"} justifyContent={"space-between"}>
-        <Text>© {year} Connect, Inc</Text>
+      <Flex
+        flexDirection={isMobile ? "column-reverse" : "row"}
+        p={10}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+      >
+        <Text>© {year} Connect, Todos os direitos reservados</Text>
 
         <Image
           w={250}

@@ -1,31 +1,31 @@
 import {
+  Box,
   Card,
+  CardBody,
+  CardFooter,
   CardHeader,
   Heading,
-  CardBody,
   Stack,
   StackDivider,
-  Box,
   Text,
-  CardFooter,
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
-import React from "react";
-import { PlansProps } from "../../interfaces/Iplans";
 import { ButtonGhost } from "../buttons/ButtonGhost";
 import { ButtonPrimary } from "../buttons/ButtonPrimary";
 
 interface Props {
-  dataList: PlansProps[];
+  dataList: any /* PlansProps[] */;
 }
 
 export const CardPlans = ({ dataList }: Props) => {
+  const router = useRouter();
   return (
     <>
-      {dataList.map((item) => (
+      {dataList.map((item: any) => (
         <Card
           h={item.title === "Pró" ? "sm" : "xs"}
-          minW={"xs"}
+          minW={"250px"}
           borderRadius={"2xl"}
           key={item.id}
         >
@@ -50,7 +50,7 @@ export const CardPlans = ({ dataList }: Props) => {
                 >
                   R$ {item.price}
                 </Heading>
-                {item.plans.map((plan) => (
+                {item.plans.map((plan: any) => (
                   <Text key={plan.id_plan} pt="2" fontSize="sm">
                     {plan.description}
                   </Text>

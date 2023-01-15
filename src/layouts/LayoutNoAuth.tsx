@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Header } from "../components/Header";
+import { NoAuthHeader } from "../components/NoAuthHeader";
 import { Footer } from "../components/Footer";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 export const LayoutNoAuth = ({ children }: Props) => {
   return (
     <>
-      <Header />
+      <NoAuthHeader />
       {children}
       <Footer />
     </>
